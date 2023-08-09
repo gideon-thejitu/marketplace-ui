@@ -19,6 +19,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {NzBreadCrumbModule} from "ng-zorro-antd/breadcrumb";
 import {NzMenuModule} from "ng-zorro-antd/menu";
 import {NzIconModule} from "ng-zorro-antd/icon";
+import { ProductsTableComponent } from './products-table/products-table.component';
+import {NzTableModule} from "ng-zorro-antd/table";
+import {NzDividerModule} from "ng-zorro-antd/divider";
+import {NzTypographyModule} from "ng-zorro-antd/typography";
 
 registerLocaleData(en);
 
@@ -26,7 +30,8 @@ registerLocaleData(en);
   declarations: [
     AppComponent,
     AddProductComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProductsTableComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,10 @@ registerLocaleData(en);
     NzBreadCrumbModule,
     NzMenuModule,
     NzIconModule,
-    ApmModule
+    ApmModule,
+    NzTableModule,
+    NzDividerModule,
+    NzTypographyModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },

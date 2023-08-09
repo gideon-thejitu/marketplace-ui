@@ -1,0 +1,21 @@
+<h1 nz-typography>Products List</h1>
+<nz-table #basicTable [nzData]="products">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of products">
+    <td>{{ data.name }}</td>
+    <td>{{ data.description }}</td>
+    <td>{{ data.statusId }}</td>
+    <td>
+
+    </td>
+  </tr>
+  </tbody>
+</nz-table>
