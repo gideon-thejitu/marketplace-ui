@@ -6,9 +6,10 @@ import {ProductsTableComponent} from "./products-table/products-table.component"
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent, children: [
+  { path: "dashboard", component: DashboardComponent, children: [
       // { path: 'products', component: AddProductComponent },
-      { path: 'products-list', component: ProductsTableComponent }
+      { path: 'products', component: ProductsTableComponent },
+      { path: 'products/create', component: AddProductComponent }
     ]
   }
 ];
