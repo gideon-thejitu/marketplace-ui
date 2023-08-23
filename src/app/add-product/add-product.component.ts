@@ -11,8 +11,8 @@ export class AddProductComponent {
     name: [''],
     description: [''],
     price: [''],
-    categoryId: [''],
-    productStatusId: ['']
+    productStatusId: [''],
+    categoryId: ['']
   })
   constructor(private formBuilder: FormBuilder) {
   }
