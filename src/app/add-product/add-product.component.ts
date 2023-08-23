@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-add-product',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-product.component.scss']
 })
 export class AddProductComponent {
-
+  productForm = this.formBuilder.group({
+    name: [''],
+    description: [''],
+    price: [''],
+    categoryId: ['']
+  })
+  constructor(private formBuilder: FormBuilder) {
+  }
 }

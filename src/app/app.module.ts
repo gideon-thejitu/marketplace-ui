@@ -27,6 +27,8 @@ import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzPageHeaderModule} from "ng-zorro-antd/page-header";
 import {NzSpaceModule} from "ng-zorro-antd/space";
 import {NzDescriptionsModule} from "ng-zorro-antd/descriptions";
+import {NzFormModule} from "ng-zorro-antd/form";
+import {NzInputModule} from "ng-zorro-antd/input";
 
 registerLocaleData(en);
 
@@ -54,7 +56,9 @@ registerLocaleData(en);
     NzButtonModule,
     NzPageHeaderModule,
     NzSpaceModule,
-    NzDescriptionsModule
+    NzDescriptionsModule,
+    NzFormModule,
+    NzInputModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
