@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Product} from "./interfaces/product";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-products-table',
@@ -26,4 +27,11 @@ export class ProductsTableComponent {
       statusId: 1
     },
   ];
+
+  constructor(private router: Router) {
+  }
+
+  onAddProductClick() {
+    this.router.navigate(['dashboard/products/create'])
+  }
 }

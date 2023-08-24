@@ -23,6 +23,12 @@ import { ProductsTableComponent } from './products-table/products-table.componen
 import {NzTableModule} from "ng-zorro-antd/table";
 import {NzDividerModule} from "ng-zorro-antd/divider";
 import {NzTypographyModule} from "ng-zorro-antd/typography";
+import {NzButtonModule} from "ng-zorro-antd/button";
+import {NzPageHeaderModule} from "ng-zorro-antd/page-header";
+import {NzSpaceModule} from "ng-zorro-antd/space";
+import {NzDescriptionsModule} from "ng-zorro-antd/descriptions";
+import {NzFormModule} from "ng-zorro-antd/form";
+import {NzInputModule} from "ng-zorro-antd/input";
 
 registerLocaleData(en);
 
@@ -46,7 +52,13 @@ registerLocaleData(en);
     ApmModule,
     NzTableModule,
     NzDividerModule,
-    NzTypographyModule
+    NzTypographyModule,
+    NzButtonModule,
+    NzPageHeaderModule,
+    NzSpaceModule,
+    NzDescriptionsModule,
+    NzFormModule,
+    NzInputModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
