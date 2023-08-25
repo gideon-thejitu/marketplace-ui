@@ -1,9 +1,20 @@
-<form nz-form>
+<form nz-form nzLayout="vertical" [formGroup]="productForm">
   <nz-form-item>
-    <nz-form-label [nzSpan]="6" nzFor="email">E-mail</nz-form-label>
-    <nz-form-control [nzSpan]="14">
-      <input nz-input name="email" type="email" id="email">
+    <nz-form-label [nzSpan]="6" nzFor="name" nzRequired>Name</nz-form-label>
+    <nz-form-control [nzSpan]="6">
+      <input nz-input type="text" id="idName" formControlName="name">
     </nz-form-control>
   </nz-form-item >
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="description">Description</nz-form-label>
+    <nz-form-control [nzSpan]="6">
+      <nz-textarea-count [nzMaxCharacterCount]="1000">
+        <textarea rows="5" formControlName="description" nz-input></textarea>
+      </nz-textarea-count>
+    </nz-form-control>
+  </nz-form-item >
+  <nz-form-item>
+
+  </nz-form-item>
 </form>
 
