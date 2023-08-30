@@ -1,4 +1,4 @@
-<form nz-form nzLayout="vertical" [formGroup]="productForm">
+<form nz-form nzLayout="vertical" [formGroup]="productForm" (ngSubmit)="onCreateProduct()">
   <nz-form-item>
     <nz-form-label [nzSpan]="6" nzFor="name" nzRequired>Name</nz-form-label>
     <nz-form-control [nzSpan]="6">
@@ -13,5 +13,26 @@
       </nz-textarea-count>
     </nz-form-control>
   </nz-form-item >
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="category" nzRequired>Category</nz-form-label>
+    <nz-form-control [nzSpan]="6">
+      <nz-select formControlName="categoryId">
+        <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+        <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="status" nzRequired>Product Status</nz-form-label>
+    <nz-form-control [nzSpan]="6">
+      <nz-select formControlName="productStatusId">
+        <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+        <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+  <button nz-button nzType="primary" type="submit">Create Product</button>
 </form>
 
