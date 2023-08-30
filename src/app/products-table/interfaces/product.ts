@@ -1,8 +1,8 @@
 export interface Product {
   readonly id: number;
-  readonly uuid: string;
+  readonly productId: string;
   name: string;
   description: string;
-  statusId: number;
-  isDeleted: boolean;
+  categoryId: number;
+  productStatusId: number;
 }
