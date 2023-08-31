@@ -30,6 +30,7 @@ import {NzDescriptionsModule} from "ng-zorro-antd/descriptions";
 import {NzFormModule} from "ng-zorro-antd/form";
 import {NzInputModule} from "ng-zorro-antd/input";
 import {NzSelectModule} from "ng-zorro-antd/select";
+import {NzInputNumberModule} from "ng-zorro-antd/input-number";
 
 registerLocaleData(en);
 
@@ -61,7 +62,8 @@ registerLocaleData(en);
     NzDescriptionsModule,
     NzFormModule,
     NzInputModule,
-    NzSelectModule
+    NzSelectModule,
+    NzInputNumberModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
