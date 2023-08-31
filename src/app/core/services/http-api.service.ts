@@ -6,6 +6,7 @@ import {catchError, throwError} from "rxjs";
   providedIn: 'root'
 })
 export class HttpApiService {
+  constructor(private http: HttpClient) { }
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -13,10 +14,8 @@ export class HttpApiService {
     })
   }
 
-  constructor(private http: HttpClient) { }
-
-  get<T>(url: string, options?: any) {
-    return this.http.get<T>(url, options).pipe(catchError(this.handleError))
+  get<T>(url: string) {
+    return this.http.get<T>(url).pipe(catchError(this.handleError))
   }
 
   private handleError(error: any) {
