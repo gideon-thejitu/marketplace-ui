@@ -1,3 +1,6 @@
+import {Category} from "../../interfaces/category";
+import {ProductStatus} from "../../interfaces/product-status";
+
 export interface Product {
   readonly id: number;
   readonly productId: string;
@@ -6,5 +9,7 @@ export interface Product {
   price: number;
   discountedPrice: number;
   categoryId: number;
+  category: Category,
   productStatusId: number;
+  productStatus: ProductStatus
 }

@@ -11,6 +11,7 @@ import {Product} from "../products-table/interfaces/product";
 })
 export class ProductsService {
   private baseUrl = environment.ApiBaseUrl
+  private productsUrl = this.baseUrl + '/products'
   constructor(private httpApi: HttpApiService) { }
 
   getStatuses(params?: HttpGetParams) {
@@ -21,7 +22,13 @@ export class ProductsService {
   }
 
   createProduct(data: object) {
-    const url = this.baseUrl + '/products'
-    return this.httpApi.post<Product>(url, data)
+    return this.httpApi.post<Product>(this.productsUrl, data)
+  }
+
+  getProducts(params: HttpGetParams) {
+    console.log(params)
+    const queryString = new URLSearchParams(params)
+    const url = this.productsUrl + `?${queryString}`;
+    return this.httpApi.get<PaginatedResponse<Product>>(url);
   }
 }
