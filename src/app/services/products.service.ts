@@ -12,7 +12,6 @@ import {Product} from "../products-table/interfaces/product";
 export class ProductsService {
   private baseUrl = environment.ApiBaseUrl
   private productsUrl = this.baseUrl + '/products'
-
   constructor(private httpApi: HttpApiService) { }
 
   getStatuses(params?: HttpGetParams) {
