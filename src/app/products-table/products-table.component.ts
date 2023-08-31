@@ -15,6 +15,8 @@ export class ProductsTableComponent {
       productId: "1",
       name: 'Product 1',
       description: 'Description',
+      price: 1,
+      discountedPrice: 2,
       productStatusId: 1,
       categoryId: 1
     },
@@ -23,6 +25,8 @@ export class ProductsTableComponent {
       productId: "2",
       name: 'Product 2',
       description: 'Description',
+      price: 1,
+      discountedPrice: 1,
       productStatusId: 1,
       categoryId: 1
     },

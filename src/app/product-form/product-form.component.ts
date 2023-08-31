@@ -4,17 +4,21 @@ import {CategoriesService} from "../services/categories.service";
 import {Category} from "../interfaces/category";
 import {ProductsService} from "../services/products.service";
 import {ProductStatus} from "../interfaces/product-status";
+import {MessageService} from "../services/shared/message.service";
+import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-add-product',
-  templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.scss']
+  selector: 'app-product-form',
+  templateUrl: './product-form.component.html',
+  styleUrls: ['./product-form.component.scss']
 })
-export class AddProductComponent implements OnInit {
+export class ProductFormComponent implements OnInit {
+  submitting = false;
   productForm = this.formBuilder.group({
     name: ['', [Validators.required]],
     description: ['', [Validators.required]],
     price: ['', [Validators.required]],
+    discountedPrice: ['', [Validators.required]],
     productStatusId: ['', [Validators.required]],
     categoryId: ['', [Validators.required]]
   })
@@ -32,14 +36,25 @@ export class AddProductComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private categoriesService: CategoriesService,
-              private productsServices: ProductsService) {}
+              private productsServices: ProductsService,
+              private message: MessageService,
+              private router: Router) {}
 
   onCreateProduct(): void {
-    console.log(this.productForm)
+    this.submitting = true;
+    this.productsServices.createProduct(this.productForm.value).subscribe(() => {
+      this.submitting = false;
+      this.message.successMessage("Product created")
+      this.router.navigate(['/dashboard/products'])
+    }, () => {
+      this.submitting = false
+      this.message.errorMessage("Something went wrong")
+    })
+
   }
 
   getCategories() {
-    this.categoriesService.getCategories(this.categoryParams).subscribe(categories => {
+    this.categoriesService.getCategories(this.categoryParams).subscribe((categories) => {
       this.categories = categories.results;
     })
   }

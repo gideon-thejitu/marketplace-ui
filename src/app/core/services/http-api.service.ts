@@ -18,6 +18,10 @@ export class HttpApiService {
     return this.http.get<T>(url).pipe(catchError(this.handleError))
   }
 
+  post<Response>(url: string, data: Object) {
+    return this.http.post<Response>(url, data).pipe(catchError(this.handleError))
+  }
+
   private handleError(error: any) {
     let errorMessage = '';
 
