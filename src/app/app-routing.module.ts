@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {DashboardComponent} from "./dashboard/dashboard.component";
+import {ProductFormComponent} from "./product-form/product-form.component";
 import {ProductsTableComponent} from "./products-table/products-table.component";
 import {CreateProductComponent} from "./create-product/create-product.component";
 import {UpdateProductComponent} from "./update-product/update-product.component";
