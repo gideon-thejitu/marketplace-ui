@@ -14,7 +14,7 @@ import  { ApmService, ApmModule } from "@elastic/apm-rum-angular";
 
 import { NzLayoutModule } from "ng-zorro-antd/layout";
 
-import { AddProductComponent } from './add-product/add-product.component';
+import { ProductFormComponent } from './components/product-form/product-form.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {NzBreadCrumbModule} from "ng-zorro-antd/breadcrumb";
 import {NzMenuModule} from "ng-zorro-antd/menu";
@@ -31,15 +31,20 @@ import {NzFormModule} from "ng-zorro-antd/form";
 import {NzInputModule} from "ng-zorro-antd/input";
 import {NzSelectModule} from "ng-zorro-antd/select";
 import {NzInputNumberModule} from "ng-zorro-antd/input-number";
+import {NzMessageModule} from "ng-zorro-antd/message";
+import { CreateProductComponent } from './create-product/create-product.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddProductComponent,
+    ProductFormComponent,
     DashboardComponent,
-    ProductsTableComponent
+    ProductsTableComponent,
+    CreateProductComponent,
+    UpdateProductComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +68,8 @@ registerLocaleData(en);
     NzFormModule,
     NzInputModule,
     NzSelectModule,
-    NzInputNumberModule
+    NzInputNumberModule,
+    NzMessageModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },

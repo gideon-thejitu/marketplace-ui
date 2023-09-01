@@ -11,20 +11,40 @@
         (click)="onAddProductClick()">Add Product</button>
     </div>
   </div>
-  <nz-table #basicTable [nzData]="products">
+  <nz-table
+    #basicTable
+    [nzData]="products.results"
+    [nzLoading]="loading"
+    [nzFrontPagination]="false"
+    [nzTotal]="products.total"
+    [nzPageSize]="productParams.limit"
+    [nzPageIndex]="productParams.page"
+    [nzShowSizeChanger]="true"
+    (nzQueryParams)="onQueryParamsChange($event)" [nzScroll]="{ x: '360px' }">
     <thead>
     <tr>
       <th>Name</th>
       <th>Description</th>
+      <th>Price</th>
+      <th>Discount Price</th>
+      <th>Category</th>
       <th>Status</th>
       <th>Action</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let data of products">
+    <tr *ngFor="let data of products.results">
       <td>{{ data.name }}</td>
       <td>{{ data.description }}</td>
-      <td>{{ data.productStatusId }}</td>
+      <td>{{ data.price | currency:"KES" }}</td>
+      <td>{{ data.discountedPrice | currency: "KES" }}</td>
+      <td>{{ data.category.name }}</td>
+      <td>{{ data.productStatus.name }}</td>
+      <td>
+        <a [routerLink]="['/dashboard/products', data.productId, 'update']">Edit</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a>Delete</a>
+      </td>
       <td>
 
       </td>
