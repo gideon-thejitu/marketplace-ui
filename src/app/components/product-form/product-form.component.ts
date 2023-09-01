@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChanges, SimpleChange} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChange} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {CategoriesService} from "../../services/categories.service";
 import {Category} from "../../interfaces/category";
