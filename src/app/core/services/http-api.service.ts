@@ -18,8 +18,12 @@ export class HttpApiService {
     return this.http.get<T>(url).pipe(catchError(this.handleError))
   }
 
-  post<Response>(url: string, data: Object) {
+  post<Response>(url: string, data: object) {
     return this.http.post<Response>(url, data).pipe(catchError(this.handleError))
+  }
+
+  put<Response>(url: string, data: object) {
+    return this.http.put<Response>(url, data).pipe(catchError(this.handleError))
   }
 
   private handleError(error: any) {
@@ -36,12 +40,12 @@ export class HttpApiService {
       // server side error
       errorMessage = `Status Code: ${error.status} - Message: ${error.message}`
       console.group('Server Side Error')
-      console.warn(errorMessage)
+      console.warn(error)
       console.groupEnd()
     }
 
     return throwError(() => {
-      return errorMessage
+      return new Error(errorMessage)
     })
   }
 }

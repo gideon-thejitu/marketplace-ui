@@ -26,9 +26,17 @@ export class ProductsService {
   }
 
   getProducts(params: HttpGetParams) {
-    console.log(params)
     const queryString = new URLSearchParams(params)
     const url = this.productsUrl + `?${queryString}`;
     return this.httpApi.get<PaginatedResponse<Product>>(url);
+  }
+
+  getProduct(id: string) {
+    return this.httpApi.get<Product>(this.productsUrl + `/${id}`)
+  }
+
+  updateProduct(id: string, data: object) {
+    const url = this.productsUrl + `/${id}`
+    return this.httpApi.put<Product>(url, data)
   }
 }

@@ -40,7 +40,11 @@
       <td>{{ data.discountedPrice | currency: "KES" }}</td>
       <td>{{ data.category.name }}</td>
       <td>{{ data.productStatus.name }}</td>
-      <td></td>
+      <td>
+        <a [routerLink]="['/dashboard/products', data.productId, 'update']">Edit</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a>Delete</a>
+      </td>
       <td>
 
       </td>

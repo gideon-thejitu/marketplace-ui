@@ -59,5 +59,12 @@
       </ng-template>
     </nz-form-control>
   </nz-form-item>
-  <button nz-button [disabled]="!productForm.valid" nzType="primary" type="submit" [nzLoading]="this.submitting">Create Product</button>
+  <button
+    nz-button
+    [disabled]="!productForm.valid"
+    nzType="primary"
+    type="submit"
+    [nzLoading]="this.submitting">
+    {{submitLabel}}
+  </button>
 </form>

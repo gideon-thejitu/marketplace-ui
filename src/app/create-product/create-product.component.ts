@@ -1,10 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {CategoriesService} from "../services/categories.service";
-import {ProductsService} from "../services/products.service";
 import {MessageService} from "../services/shared/message.service";
-import {Router} from "@angular/router";
-import {Category} from "../interfaces/category";
-import {ProductStatus} from "../interfaces/product-status";
+import {ActivatedRoute, Router} from "@angular/router";
+import {ProductsService} from "../services/products.service";
 
 @Component({
   selector: 'app-create-product',
@@ -13,47 +10,29 @@ import {ProductStatus} from "../interfaces/product-status";
 })
 export class CreateProductComponent implements OnInit {
   submitting = false;
-  categoryParams = {
-    page: 1,
-    limit: 100
-  }
-  productStatusesParams = {
-    page: 1,
-    limit: 100
-  }
-  categories: Category[] = [];
-  productStatuses: ProductStatus[] = []
-  constructor(private categoriesService: CategoriesService,
+  constructor(private message: MessageService,
               private productsServices: ProductsService,
-              private message: MessageService,
               private router: Router) {}
 
   ngOnInit() {
-    this.getCategories();
-    this.getStatuses();
-  }
-
-  getCategories() {
-    this.categoriesService.getCategories(this.categoryParams).subscribe((categories) => {
-      this.categories = categories.results;
-    })
-  }
-
-  getStatuses(){
-    this.productsServices.getStatuses(this.productStatusesParams).subscribe(statuses => {
-      this.productStatuses = statuses.results;
-    })
+    return
   }
 
   onCreateProduct(value: object) {
     this.submitting = true;
-    this.productsServices.createProduct(value).subscribe(() => {
-      this.submitting = false;
-      this.message.successMessage("Product created")
-      this.router.navigate(['/dashboard/products'])
-    }, () => {
+    this.productsServices.createProduct(value).subscribe({
+      next: () => {
+        this.submitting = false;
+        this.message.successMessage("Product created")
+        this.router.navigate(['/dashboard/products'])
+      },
+      error: () => {
       this.submitting = false
       this.message.errorMessage("Something went wrong")
+      },
+      complete: () => {
+        console.log('ddd')
+      }
     })
   }
 }

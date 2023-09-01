@@ -33,6 +33,7 @@ import {NzSelectModule} from "ng-zorro-antd/select";
 import {NzInputNumberModule} from "ng-zorro-antd/input-number";
 import {NzMessageModule} from "ng-zorro-antd/message";
 import { CreateProductComponent } from './create-product/create-product.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
 
 registerLocaleData(en);
 
@@ -42,7 +43,8 @@ registerLocaleData(en);
     ProductFormComponent,
     DashboardComponent,
     ProductsTableComponent,
-    CreateProductComponent
+    CreateProductComponent,
+    UpdateProductComponent
   ],
   imports: [
     BrowserModule,
