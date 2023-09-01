@@ -1,4 +1,4 @@
-import { NgModule} from '@angular/core';
+import { NgModule, ErrorHandler} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,7 +10,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import  { ApmService, ApmModule } from "@elastic/apm-rum-angular";
+import  { ApmService, ApmModule, ApmErrorHandler } from "@elastic/apm-rum-angular";
 
 import { NzLayoutModule } from "ng-zorro-antd/layout";
 
@@ -34,6 +34,7 @@ import {NzInputNumberModule} from "ng-zorro-antd/input-number";
 import {NzMessageModule} from "ng-zorro-antd/message";
 import { CreateProductComponent } from './create-product/create-product.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
+import { DashboardHeaderComponent } from './components/dashboard-header/dashboard-header.component';
 
 registerLocaleData(en);
 
@@ -44,9 +45,11 @@ registerLocaleData(en);
     DashboardComponent,
     ProductsTableComponent,
     CreateProductComponent,
-    UpdateProductComponent
+    UpdateProductComponent,
+    DashboardHeaderComponent
   ],
   imports: [
+    ApmModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -57,7 +60,6 @@ registerLocaleData(en);
     NzBreadCrumbModule,
     NzMenuModule,
     NzIconModule,
-    ApmModule,
     NzTableModule,
     NzDividerModule,
     NzTypographyModule,
@@ -72,8 +74,12 @@ registerLocaleData(en);
     NzMessageModule
   ],
   providers: [
+    ApmService,
     { provide: NZ_I18N, useValue: en_US },
-    ApmService
+    {
+      provide: ErrorHandler,
+      useClass: ApmErrorHandler
+    }
   ],
   bootstrap: [AppComponent]
 })
@@ -82,6 +88,10 @@ export class AppModule {
     const apm = service.init({
       serviceName: 'Market Place UI',
       serverUrl: 'http://localhost:8200'
+    })
+    apm.setUserContext({
+      'username': 'foo',
+      'id': 'bar'
     })
   }
 }
