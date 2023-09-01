@@ -54,10 +54,6 @@ export class ProductsTableComponent implements OnInit {
   }
 
   onQueryParamsChange(params: NzTableQueryParams) {
-    if (params.pageIndex === 1) {
-      return
-    }
-
     const { pageSize, pageIndex} = params
 
     const queryParams: ProductParams = {

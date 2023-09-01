@@ -19,7 +19,8 @@
     [nzTotal]="products.total"
     [nzPageSize]="productParams.limit"
     [nzPageIndex]="productParams.page"
-    (nzQueryParams)="onQueryParamsChange($event)">
+    [nzShowSizeChanger]="true"
+    (nzQueryParams)="onQueryParamsChange($event)" [nzScroll]="{ x: '360px' }">
     <thead>
     <tr>
       <th>Name</th>
