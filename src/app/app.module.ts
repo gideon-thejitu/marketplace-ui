@@ -14,7 +14,7 @@ import  { ApmService, ApmModule } from "@elastic/apm-rum-angular";
 
 import { NzLayoutModule } from "ng-zorro-antd/layout";
 
-import { ProductFormComponent } from './product-form/product-form.component';
+import { ProductFormComponent } from './components/product-form/product-form.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {NzBreadCrumbModule} from "ng-zorro-antd/breadcrumb";
 import {NzMenuModule} from "ng-zorro-antd/menu";
@@ -32,6 +32,7 @@ import {NzInputModule} from "ng-zorro-antd/input";
 import {NzSelectModule} from "ng-zorro-antd/select";
 import {NzInputNumberModule} from "ng-zorro-antd/input-number";
 import {NzMessageModule} from "ng-zorro-antd/message";
+import { CreateProductComponent } from './create-product/create-product.component';
 
 registerLocaleData(en);
 
@@ -40,7 +41,8 @@ registerLocaleData(en);
     AppComponent,
     ProductFormComponent,
     DashboardComponent,
-    ProductsTableComponent
+    ProductsTableComponent,
+    CreateProductComponent
   ],
   imports: [
     BrowserModule,
