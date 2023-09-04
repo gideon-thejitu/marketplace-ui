@@ -59,12 +59,11 @@
       </ng-template>
     </nz-form-control>
   </nz-form-item>
-  <button
-    nz-button
-    [disabled]="!productForm.valid"
-    nzType="primary"
+  <app-button
     type="submit"
-    [nzLoading]="this.submitting">
-    {{submitLabel}}
-  </button>
+    [disabled]="!productForm.valid"
+    variant="primary"
+    [loading]="submitting"
+    [label]="submitLabel">
+  </app-button>
 </form>

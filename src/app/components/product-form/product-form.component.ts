@@ -52,8 +52,10 @@ export class ProductFormComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: TypedSimpleChanges<{ product: null | Product }>) {
-    if (changes.product && changes.product.currentValue !== null) {
-      this.updateFormValues()
+    if (changes.product !== null) {
+      if (changes.product.currentValue !== null) {
+        this.updateFormValues()
+      }
     }
   }
 

@@ -39,4 +39,9 @@ export class ProductsService {
     const url = this.productsUrl + `/${id}`
     return this.httpApi.put<Product>(url, data)
   }
+
+  deleteProduct(productId: string){
+    const url = this.productsUrl + `/${productId}`;
+    return this.httpApi.delete(url);
+  }
 }

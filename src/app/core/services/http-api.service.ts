@@ -26,6 +26,10 @@ export class HttpApiService {
     return this.http.put<Response>(url, data).pipe(catchError(this.handleError))
   }
 
+  delete<Response>(url: string) {
+    return this.http.delete<Response>(url)
+  }
+
   private handleError(error: any) {
     let errorMessage = '';
 

@@ -9,6 +9,7 @@ import {ProductsService} from "../services/products.service";
   styleUrls: ['./create-product.component.scss']
 })
 export class CreateProductComponent implements OnInit {
+  pageTitle = "Add Product"
   submitting = false;
   constructor(private message: MessageService,
               private productsServices: ProductsService,

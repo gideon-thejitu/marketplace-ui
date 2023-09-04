@@ -1,20 +1,18 @@
+<app-dashboard-header [title]="pageTitle">
+  <nz-space>
+    <button
+      *nzSpaceItem
+      class="products-list-add-product-btn"
+      nz-button
+      nzType="primary"
+      (click)="onAddProductClick()">Add Product</button>
+  </nz-space>
+</app-dashboard-header>
 <section class="products-list">
-  <div class="products-list-header-container">
-    <div>
-      <h1 class="products-list-title" nz-typography>Products List</h1>
-    </div>
-    <div class="products-list-actions-container">
-      <button
-        class="products-list-add-product-btn"
-        nz-button
-        nzType="primary"
-        (click)="onAddProductClick()">Add Product</button>
-    </div>
-  </div>
   <nz-table
     #basicTable
     [nzData]="products.results"
-    [nzLoading]="loading"
+    [nzLoading]="loading || deletingProduct"
     [nzFrontPagination]="false"
     [nzTotal]="products.total"
     [nzPageSize]="productParams.limit"
@@ -29,6 +27,7 @@
       <th>Discount Price</th>
       <th>Category</th>
       <th>Status</th>
+      <th>Deleted</th>
       <th>Action</th>
     </tr>
     </thead>
@@ -41,9 +40,20 @@
       <td>{{ data.category.name }}</td>
       <td>{{ data.productStatus.name }}</td>
       <td>
+        <span nz-icon
+              [nzType]="isDeleted(data) ? 'close-circle' : 'check-circle'"
+              [nzTheme]="'twotone'"
+              [nzTwotoneColor]="isDeleted(data) ? '#C41A1AFF' : '#3fc41a'">
+        </span>
+      </td>
+      <td>
         <a [routerLink]="['/dashboard/products', data.productId, 'update']">Edit</a>
         <nz-divider nzType="vertical"></nz-divider>
-        <a>Delete</a>
+        <a
+          nz-popconfirm
+          nzPopconfirmTitle="Sure to delete?"
+          (nzOnConfirm)="deleteProduct(data.productId)">Delete
+        </a>
       </td>
       <td>
 

@@ -8,6 +8,7 @@ export interface Product {
   description: string;
   price: number;
   discountedPrice: number;
+  deletedAt?: string | null;
   categoryId: number;
   category: Category,
   productStatusId: number;
