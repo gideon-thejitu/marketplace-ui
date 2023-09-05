@@ -37,6 +37,7 @@ import { UpdateProductComponent } from './update-product/update-product.componen
 import { DashboardHeaderComponent } from './components/dashboard-header/dashboard-header.component';
 import {NzPopconfirmModule} from "ng-zorro-antd/popconfirm";
 import { ButtonComponent } from './components/button/button.component';
+import {AuthenticationModule} from "./modules/authentication/authentication.module";
 
 registerLocaleData(en);
 
@@ -75,7 +76,8 @@ registerLocaleData(en);
     NzSelectModule,
     NzInputNumberModule,
     NzMessageModule,
-    NzPopconfirmModule
+    NzPopconfirmModule,
+    AuthenticationModule
   ],
   providers: [
     ApmService,
