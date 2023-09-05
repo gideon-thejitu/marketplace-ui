@@ -11,6 +11,7 @@ import {Location} from "@angular/common";
   styleUrls: ['./update-product.component.scss']
 })
 export class UpdateProductComponent implements OnInit {
+  pageTitle = "Update Product"
   submitting = false;
   public product: Product | null = null;
   constructor(private route: ActivatedRoute,

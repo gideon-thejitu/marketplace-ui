@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MessageService} from "../services/shared/message.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {ProductsService} from "../services/products.service";
 
 @Component({
@@ -9,6 +9,7 @@ import {ProductsService} from "../services/products.service";
   styleUrls: ['./create-product.component.scss']
 })
 export class CreateProductComponent implements OnInit {
+  pageTitle = "Add Product"
   submitting = false;
   constructor(private message: MessageService,
               private productsServices: ProductsService,

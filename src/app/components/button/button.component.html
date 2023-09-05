@@ -1,0 +1,10 @@
+<button
+  nz-button
+  [nzType]="variant"
+  [nzSize]="size"
+  [nzLoading]="loading"
+  [disabled]="disabled"
+  (click)="onButtonClick()">
+  <span *ngIf="icon" nz-icon [nzType]="icon"></span>
+  {{label}}
+</button>
