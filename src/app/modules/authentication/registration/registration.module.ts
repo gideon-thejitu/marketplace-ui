@@ -4,6 +4,9 @@ import { SignupComponent } from './signup/signup.component';
 import {NzFormModule} from "ng-zorro-antd/form";
 import {ReactiveFormsModule} from "@angular/forms";
 import {NzInputModule} from "ng-zorro-antd/input";
+import {CardComponent} from "../../../components/card/card.component";
+import {NzSpaceModule} from "ng-zorro-antd/space";
+import {ButtonComponent} from "../../../components/button/button.component";
 
 @NgModule({
   declarations: [
@@ -13,7 +16,10 @@ import {NzInputModule} from "ng-zorro-antd/input";
     CommonModule,
     NzFormModule,
     ReactiveFormsModule,
-    NzInputModule
+    NzInputModule,
+    CardComponent,
+    NzSpaceModule,
+    ButtonComponent,
   ]
 })
 export class RegistrationModule { }
