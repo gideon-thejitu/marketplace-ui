@@ -64,9 +64,7 @@ export class SignupComponent implements OnInit {
   handleRegisterUser() {
     this.loading = true;
     this.usersService.createUser(this.form.value as NewUser).subscribe({
-      next: () => {
-        this.handleSuccess();
-      },
+      next: () => this.handleSuccess(),
       error: (error: any) => {
         this.messages.errorMessage(error?.message || 'User was not registered successfully!')
         this.loading = false;
@@ -77,6 +75,6 @@ export class SignupComponent implements OnInit {
   handleSuccess() {
     this.messages.successMessage('User registered successfully!')
     this.form.reset();
-    this.router.navigate(['auth/login'])
+    this.router.navigate(['auth/signin'])
   }
 }
