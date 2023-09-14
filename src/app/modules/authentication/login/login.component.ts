@@ -22,10 +22,10 @@ export class LoginComponent implements OnInit {
               private router: Router) {
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.authService.isAuthenticated.subscribe(value => {
       if (value) {
-        this.router.navigate(['/'])
+        this.authService.onAuthenticationSuccess()
       }
     })
   }
