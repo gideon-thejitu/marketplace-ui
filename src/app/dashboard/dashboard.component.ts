@@ -24,5 +24,6 @@ export class DashboardComponent {
   ]
 
   constructor(private router: Router) {
+
   }
 }
