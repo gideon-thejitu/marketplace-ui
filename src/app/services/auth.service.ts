@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import {HttpApiService} from "../core/services/http-api.service";
 import {environment} from "../../environments/environment";
 import {Auth} from "../interfaces/auth";
-import {BehaviorSubject, map, of} from "rxjs";
+import {BehaviorSubject, map, Subject} from "rxjs";
 import jwtDecode from "jwt-decode";
 import * as localforage from "localforage";
 import {fromPromise} from "rxjs/internal/observable/innerFrom";
 import {MessageService} from "./shared/message.service";
-import {ActivatedRoute, Router, Routes} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 const JWT_KEY = 'marketplace-jwt'
 @Injectable({
@@ -16,7 +16,7 @@ const JWT_KEY = 'marketplace-jwt'
 export class AuthService {
   private baseUrl = `${environment.ApiBaseUrl}`;
   currentUser: BehaviorSubject<{ email: string } | object> = new BehaviorSubject({});
-  isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  isAuthenticated: Subject<boolean> = new Subject<boolean>();
 
   constructor(private httpApi: HttpApiService,
               private messages: MessageService,
@@ -48,7 +48,6 @@ export class AuthService {
   }
 
   onAuthenticationSuccess() {
-    console.log('ca')
     const { queryParams} = this.route.snapshot;
 
     if (queryParams['next'] === undefined) {

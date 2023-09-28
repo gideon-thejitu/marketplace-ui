@@ -9,8 +9,6 @@ export const authGuard: CanActivateFn = async (_, state) => {
 
   const authenticated = await firstValueFrom(service.checkIsAuthenticated())
 
-  console.log({authenticated})
-
   if (!authenticated) {
     return router.createUrlTree(['auth/signin'], { queryParams: { next: state.url }})
   }

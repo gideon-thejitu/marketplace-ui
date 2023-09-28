@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../../services/auth.service";
 import {MessageService} from "../../../services/shared/message.service";
@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   loading = false;
   form: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -28,6 +28,10 @@ export class LoginComponent implements OnInit {
         this.authService.onAuthenticationSuccess()
       }
     })
+  }
+
+  ngOnDestroy() {
+    this.authService.isAuthenticated.unsubscribe();
   }
 
   submit() {
