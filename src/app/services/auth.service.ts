@@ -6,7 +6,6 @@ import {BehaviorSubject, map, Subject} from "rxjs";
 import jwtDecode from "jwt-decode";
 import * as localforage from "localforage";
 import {fromPromise} from "rxjs/internal/observable/innerFrom";
-import {MessageService} from "./shared/message.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
 const JWT_KEY = 'marketplace-jwt'
@@ -19,7 +18,6 @@ export class AuthService {
   isAuthenticated: Subject<boolean> = new Subject<boolean>();
 
   constructor(private httpApi: HttpApiService,
-              private messages: MessageService,
               private route: ActivatedRoute,
               private router: Router) { }
 
