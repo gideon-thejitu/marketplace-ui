@@ -1,0 +1,9 @@
+<app-dashboard-header [title]="pageTitle"></app-dashboard-header>
+<div class="products-form-container">
+  <div class="wrapper">
+    <app-product-form
+      [submitting]="submitting"
+      (formSubmitted)="onCreateProduct($event)">
+    </app-product-form>
+  </div>
+</div>

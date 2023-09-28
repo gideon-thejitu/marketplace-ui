@@ -22,10 +22,10 @@ export class ButtonComponent {
   @Input() icon = ''
   @Input() loading = false
   @Input() disabled = false
-  @Output() onClick = new EventEmitter<any>()
+  @Output() btnClick = new EventEmitter<any>()
   @Input() fullWidth = false;
 
   onButtonClick() {
-    this.onClick.emit()
+    this.btnClick.emit()
   }
 }
