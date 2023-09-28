@@ -1,21 +1,21 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from "./interfaces/product";
 import {Router} from "@angular/router";
-import {ProductsService} from "../services/products.service";
-import {PaginatedResponse} from "../interfaces/paginated-response";
+import {ProductsService} from "../../../services/products.service";
+import {PaginatedResponse} from "../../../interfaces/paginated-response";
 import {NzTableQueryParams} from "ng-zorro-antd/table";
-import {MessageService} from "../services/shared/message.service";
+import {MessageService} from "../../../services/shared/message.service";
 
 type ProductParams = {
   page: number,
   limit: number
 }
 @Component({
-  selector: 'app-products-table',
-  templateUrl: './products-table.component.html',
-  styleUrls: ['./products-table.component.scss']
+  selector: 'app-products-list',
+  templateUrl: './products-list.component.html',
+  styleUrls: ['./products-list.component.scss']
 })
-export class ProductsTableComponent implements OnInit {
+export class ProductsListComponent implements OnInit {
   pageTitle = "Products"
   loading = true;
   deletingProduct = false;
@@ -39,7 +39,7 @@ export class ProductsTableComponent implements OnInit {
   }
 
   onAddProductClick() {
-    this.router.navigate(['dashboard/products/create'])
+    this.router.navigate(['home/products/create'])
   }
 
   loadProducts(params: ProductParams) {

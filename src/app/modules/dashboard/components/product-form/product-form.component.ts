@@ -1,10 +1,10 @@
 import {Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChange} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
-import {CategoriesService} from "../../services/categories.service";
-import {Category} from "../../interfaces/category";
-import {ProductsService} from "../../services/products.service";
-import {ProductStatus} from "../../interfaces/product-status";
-import {Product} from "../../products-table/interfaces/product";
+import {CategoriesService} from "../../../../services/categories.service";
+import {Category} from "../../../../interfaces/category";
+import {ProductsService} from "../../../../services/products.service";
+import {ProductStatus} from "../../../../interfaces/product-status";
+import {Product} from "../../products-list/interfaces/product";
 
 type TypedSimpleChange<T> = Omit<SimpleChange, 'previousValue' | 'currentValue'> & {
   previousValue: T,

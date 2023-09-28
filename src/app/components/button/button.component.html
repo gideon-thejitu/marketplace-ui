@@ -5,6 +5,6 @@
   [nzLoading]="loading"
   [disabled]="disabled"
   (click)="onButtonClick()">
-  <span *ngIf="icon" nz-icon [nzType]="icon"></span>
+  <span *ngIf="icon" nz-icon [nzType]="icon ? icon : ''"></span>
   {{label}}
 </button>
