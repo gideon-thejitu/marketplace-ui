@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {catchError, throwError} from "rxjs";
+import {MessageService} from "../../services/shared/message.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpApiService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private messageService: MessageService) { }
 
   private httpOptions = {
     headers: new HttpHeaders({
