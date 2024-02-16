@@ -4,6 +4,7 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 import {ProductsTableComponent} from "./products-table/products-table.component";
 import {CreateProductComponent} from "./create-product/create-product.component";
 import {UpdateProductComponent} from "./update-product/update-product.component";
+import {NotFoundComponentComponent} from "./components/not-found-component/not-found-component.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -12,7 +13,8 @@ const routes: Routes = [
       { path: 'products/create', component: CreateProductComponent, title: 'New Product' },
       { path: 'products/:id/update', component: UpdateProductComponent, title: 'Update Product' }
     ]
-  }
+  },
+  { path: '**', component: NotFoundComponentComponent }
 ];
 
 @NgModule({
