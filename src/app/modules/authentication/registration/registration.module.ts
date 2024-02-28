@@ -11,9 +11,9 @@ import {NzInputModule} from "ng-zorro-antd/input";
   ],
   imports: [
     CommonModule,
-    NzFormModule,
     ReactiveFormsModule,
-    NzInputModule
+    NzInputModule,
+    NzFormModule,
   ]
 })
 export class RegistrationModule { }
