@@ -57,13 +57,20 @@ registerLocaleData(en);
     NotFoundComponentComponent
   ],
   imports: [
+    // APM
     ApmModule,
+
+    // Angular
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+
+    // Routing
+    AuthenticationModule,
+    AppRoutingModule,
+
     NzLayoutModule,
     NzBreadCrumbModule,
     NzMenuModule,
@@ -81,8 +88,7 @@ registerLocaleData(en);
     NzInputNumberModule,
     NzMessageModule,
     NzPopconfirmModule,
-    AuthenticationModule,
-    NzResultModule
+    NzResultModule,
   ],
   providers: [
     ApmService,

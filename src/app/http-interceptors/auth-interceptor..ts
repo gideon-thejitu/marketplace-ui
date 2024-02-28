@@ -6,12 +6,12 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import {Observable, tap} from 'rxjs';
-import {MessageService} from "../services/shared/message.service";
+import {AuthorizationService} from "../services/authorization.service";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor(private messageService: MessageService) {}
+  constructor(private authorizationService: AuthorizationService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
@@ -20,7 +20,7 @@ export class AuthInterceptor implements HttpInterceptor {
           console.log({event})
         },
         error: (_error) => {
-          this.messageService.errorMessage(_error.error.message)
+          return this.authorizationService.handleHTTPResponse(_error)
         },
       })
     )
