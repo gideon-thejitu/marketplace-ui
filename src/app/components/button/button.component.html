@@ -5,7 +5,8 @@
   [nzSize]="size"
   [nzLoading]="loading"
   [disabled]="disabled"
-  (click)="onButtonClick()">
+  (click)="onButtonClick()"
+  [type]="variant === 'link' ? 'button': ''">
   <ng-container *ngIf="icon">
     <span nz-icon [nzType]="icon"></span>
   </ng-container>

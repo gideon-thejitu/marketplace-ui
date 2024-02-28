@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzIconModule} from "ng-zorro-antd/icon";
 import {NgIf} from "@angular/common";
@@ -14,7 +14,7 @@ import {NgIf} from "@angular/common";
   ],
   standalone: true
 })
-export class ButtonComponent {
+export class ButtonComponent implements OnInit {
   @Input() variant: 'primary' | "default" | "text" | "link" = 'primary'
   @Input() type: 'button' | "submit" = 'button'
   @Input() label = ''
@@ -27,5 +27,8 @@ export class ButtonComponent {
 
   onButtonClick() {
     this.onClick.emit()
+  }
+
+  ngOnInit(): void {
   }
 }

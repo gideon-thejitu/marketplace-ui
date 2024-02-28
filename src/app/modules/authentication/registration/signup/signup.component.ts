@@ -4,6 +4,7 @@ import {UsersServiceService} from "../../../../services/users-service.service";
 import {NewUser} from "../../../../interfaces/user";
 import {MessageService} from "../../../../services/shared/message.service";
 import {Router} from "@angular/router";
+import {FormService} from "../../../../services/shared/form.service";
 
 @Component({
   selector: 'app-signup',
@@ -33,7 +34,8 @@ export class SignupComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private usersService: UsersServiceService,
               private messages: MessageService,
-              private router: Router) {}
+              private router: Router,
+              private formService: FormService) {}
 
   ngOnInit() {
     this.form.controls.password.valueChanges.subscribe((value) => {
@@ -50,16 +52,11 @@ export class SignupComponent implements OnInit {
   submitForm() {
     const  { valid } = this.form;
 
-    if (valid) {
-      this.handleRegisterUser();
-    } else {
-      Object.values(this.form.controls).forEach(control => {
-        if (control.invalid) {
-          control.markAsDirty();
-          control.updateValueAndValidity({ onlySelf: true });
-        }
-      });
+    if (!valid) {
+      return this.formService.markFieldsInvalid(this.form)
     }
+
+    this.handleRegisterUser();
   }
 
   handleRegisterUser() {
