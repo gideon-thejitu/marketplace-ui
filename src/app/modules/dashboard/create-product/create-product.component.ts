@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {MessageService} from "../services/shared/message.service";
 import {Router} from "@angular/router";
-import {ProductsService} from "../services/products.service";
+import {MessageService} from "../../../services/shared/message.service";
+import {ProductsService} from "../../../services/products.service";
 
 @Component({
   selector: 'app-create-product',
@@ -25,7 +25,7 @@ export class CreateProductComponent implements OnInit {
       next: () => {
         this.submitting = false;
         this.message.successMessage("Product created")
-        this.router.navigate(['/dashboard/products'])
+        this.router.navigate(['/home/products'])
       },
       error: () => {
       this.submitting = false

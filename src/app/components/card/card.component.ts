@@ -11,6 +11,5 @@ import {NzCardModule} from "ng-zorro-antd/card";
   ]
 })
 export class CardComponent {
-  @Input("title") title: string = '';
-
+  @Input() title = '';
 }

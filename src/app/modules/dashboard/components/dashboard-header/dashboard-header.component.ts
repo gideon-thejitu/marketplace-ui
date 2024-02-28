@@ -6,6 +6,6 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./dashboard-header.component.scss']
 })
 export class DashboardHeaderComponent {
-  @Input() title: string = ''
-  @Input() subtitle: string = ''
+  @Input() title = ''
+  @Input() subtitle = ''
 }

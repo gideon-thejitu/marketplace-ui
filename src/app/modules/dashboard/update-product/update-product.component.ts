@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {ProductsService} from "../services/products.service";
-import {Product} from "../products-table/interfaces/product";
-import {MessageService} from "../services/shared/message.service";
+import {ProductsService} from "../../../services/products.service";
+import {Product} from "../products-list/interfaces/product";
+import {MessageService} from "../../../services/shared/message.service";
 import {Location} from "@angular/common";
 
 @Component({
@@ -45,7 +45,7 @@ export class UpdateProductComponent implements OnInit {
     this.productsService.updateProduct(this.product.productId, {...this.product, ...value}).subscribe({
       next: () => {
         this.message.successMessage('Product updated successfully!')
-        this.router.navigate(['/dashboard/products'])
+        this.router.navigate(['/home/products'])
       },
       error: () => {
         this.message.errorMessage('Unable to update product')

@@ -6,13 +6,13 @@ import {NzMessageService} from "ng-zorro-antd/message";
 })
 export class MessageService {
 
-  constructor(private message: NzMessageService) { }
+  constructor(public nzMessageService: NzMessageService) { }
 
   successMessage(value: string) {
-    this.message.create("success", value)
+    this.nzMessageService.create("success", value)
   }
 
   errorMessage(value: string) {
-    this.message.create("error", value)
+    this.nzMessageService.create("error", value)
   }
 }

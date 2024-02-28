@@ -4,7 +4,7 @@ import {environment} from "../../environments/environment";
 import {PaginatedResponse} from "../interfaces/paginated-response";
 import {HttpGetParams} from "../interfaces/http-get-params";
 import {ProductStatus} from "../interfaces/product-status";
-import {Product} from "../products-table/interfaces/product";
+import {Product} from "../modules/dashboard/products-list/interfaces/product";
 
 @Injectable({
   providedIn: 'root'
