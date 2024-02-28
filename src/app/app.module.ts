@@ -7,7 +7,7 @@ import {NZ_I18N, en_US} from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import  { ApmService, ApmModule, ApmErrorHandler } from "@elastic/apm-rum-angular";
@@ -40,6 +40,10 @@ import { ButtonComponent } from './components/button/button.component';
 import {AuthenticationModule} from "./modules/authentication/authentication.module";
 import { CardComponent } from './components/card/card.component';
 import {NzCardModule} from "ng-zorro-antd/card";
+import { NotFoundComponentComponent } from './components/not-found-component/not-found-component.component';
+import {NzResultModule} from "ng-zorro-antd/result";
+import {AuthInterceptor} from "./http-interceptors/auth-interceptor";
+import {ErrorInterceptor} from "./http-interceptors/error-interceptor.service";
 
 registerLocaleData(en);
 
@@ -52,15 +56,23 @@ registerLocaleData(en);
     CreateProductComponent,
     UpdateProductComponent,
     DashboardHeaderComponent,
+    NotFoundComponentComponent
   ],
   imports: [
+    // APM
     ApmModule,
+
+    // Angular
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+
+    // Routing
+    AuthenticationModule,
+    AppRoutingModule,
+
     NzLayoutModule,
     NzBreadCrumbModule,
     NzMenuModule,
@@ -78,10 +90,11 @@ registerLocaleData(en);
     NzInputNumberModule,
     NzMessageModule,
     NzPopconfirmModule,
-    AuthenticationModule,
     NzCardModule,
     CardComponent,
-    ButtonComponent
+    ButtonComponent,
+    NzResultModule,
+    ButtonComponent,
   ],
   providers: [
     ApmService,
@@ -89,6 +102,16 @@ registerLocaleData(en);
     {
       provide: ErrorHandler,
       useClass: ApmErrorHandler
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
     }
   ],
   exports: [

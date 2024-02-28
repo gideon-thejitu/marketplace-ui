@@ -10,7 +10,7 @@ import {RegistrationModule} from "./registration/registration.module";
     CommonModule,
     RoutingModule,
     ReactiveFormsModule,
-    RegistrationModule,
+    RegistrationModule
   ]
 })
 export class AuthenticationModule { }

@@ -5,6 +5,7 @@
         nz-form
         [formGroup]="form"
         (ngSubmit)="submitForm()" nzLayout="vertical">
+        <div class="primary-contact-item">
         <nz-form-item>
           <nz-form-label
             nzFor="email"
@@ -19,6 +20,21 @@
               nz-input />
           </nz-form-control>
         </nz-form-item>
+        <nz-form-item>
+          <nz-form-label
+            nzFor="phone"
+            nzRequired>
+            Phone
+          </nz-form-label>
+          <nz-form-control nzErrorTip="Enter a valid Phone!">
+            <input
+              type="text"
+              id="phone"
+              formControlName="phone"
+              nz-input />
+          </nz-form-control>
+        </nz-form-item>
+        </div>
         <nz-form-item>
             <nz-form-label
               nzFor="firstName"

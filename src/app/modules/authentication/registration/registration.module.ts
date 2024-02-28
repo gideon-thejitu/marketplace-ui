@@ -14,12 +14,12 @@ import {ButtonComponent} from "../../../components/button/button.component";
   ],
   imports: [
     CommonModule,
-    NzFormModule,
     ReactiveFormsModule,
     NzInputModule,
     CardComponent,
     NzSpaceModule,
     ButtonComponent,
+    NzFormModule,
   ]
 })
 export class RegistrationModule { }
